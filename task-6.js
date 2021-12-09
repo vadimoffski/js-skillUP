@@ -1,6 +1,6 @@
 let total = 0;
 
-while (true) {
+for (let i = 0; true; i++) {
   let input = prompt("Ввести число: ");
   if (isNaN(input)) {
     alert("Было введено не число, попробуйте еще раз");
