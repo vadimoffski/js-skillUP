@@ -1,16 +1,38 @@
-//Напиши фукцнию findLongestWord(string), которая принимает параметром произвольную строку (в строке будут только слова и пробелы) и возвращает самое длинное слово в этой строке.
+//Напиши функцию findBestEmployee(employees), которая принимает объект сотрудников и возвращает имя самого продуктивного (который выполнил больше всех задач). Сотрудники и кол-во выполненых задач содержатся как свойства объекта в формате "имя":"кол-во задач".
 
-let str1 = "The quick brown fox jumped over the lazy dog";
-let str2 = "Google do a roll";
-let str3 = "May the force be with you";
-
-const findLongestWord = function (string) {
-  let array = string.split(" ");
-  let bigWord = "";
-  for (let word of array) {
-    if (word.length > bigWord.length) bigWord = word;
+const findBestEmployee = (employees) => {
+  let max = Math.max(...Object.values(employees));
+  for (let key in employees) {
+    if (employees[key] === max) return key;
   }
-  return bigWord;
+  return -1;
 };
 
-console.log(findLongestWord(str3));
+/*
+ * Вызовы функции для проверки работоспособности твоей реализации.
+ */
+console.log(
+  findBestEmployee({
+    ann: 29,
+    david: 35,
+    helen: 1,
+    lorence: 99,
+  })
+); // lorence
+
+console.log(
+  findBestEmployee({
+    poly: 12,
+    mango: 17,
+    ajax: 4,
+  })
+); // mango
+
+console.log(
+  findBestEmployee({
+    lux: 147,
+    david: 21,
+    kiwi: 19,
+    chelsy: 38,
+  })
+); // lux

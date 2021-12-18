@@ -1,31 +1,55 @@
-const logins = ["Mango", "robotGoogles", "Poly", "Aj4x1sBozz", "qwerty123"];
+//Напиши скрипт управления личным кабинетом интернет банка. Есть объект account в котором необходимо реализовать методы для работы с балансом и историей транзакций.
 
-const isLoginValid = function (login) {
-  if (login.length >= 4 && login.length <= 16) {
-    return true;
-  }
-  return false;
+const Transaction = {
+  DEPOSIT: "deposit",
+  WITHDRAW: "withdraw",
 };
 
-const isLoginUnique = function (allLogins, login) {
-  return allLogins.includes(login);
-};
-
-const addLogin = function (allLogins, login) {
-  if (isLoginValid(login)) {
-    if (isLoginUnique(allLogins, login)) {
-      return "Такой логин уже используется!";
-    } else {
-      allLogins.push(login);
-      console.log(logins);
-      return "Логин успешно добавлен!";
+const account = {
+  balance: 0,
+  transactions: [],
+  createTransaction(amount, type) {
+    let newTransaction = {
+      id: Math.floor(Math.random() * 5),
+      amount: amount,
+      type: type,
+    };
+    this.transactions.push(newTransaction);
+  },
+  deposit(amount) {
+    this.balance += amount;
+    this.createTransaction(amount, Transaction.DEPOSIT);
+  },
+  withdraw(amount) {
+    if (this.balance < amount) {
+      return "недостаточно средств";
     }
-  } else {
-    return "Ошибка! Логин должен быть от 4 до 16 символов";
-  }
+    this.balance = this.balance - amount;
+    this.createTransaction(amount, Transaction.WITHDRAW);
+  },
+  getBalance() {
+    console.log(this.balance);
+  },
+  getTransactionDetails(id) {
+    let info = this.transactions.filter((item) => item.id == id);
+    console.log(info);
+  },
+  getTransactionTotal(type) {
+    let info = this.transactions.filter((item) => item.type === type);
+    console.log(info);
+  },
 };
 
-console.log(addLogin(logins, "Ajax")); // 'Логин успешно добавлен!'
-console.log(addLogin(logins, "robotGoogles")); // 'Такой логин уже используется!'
-console.log(addLogin(logins, "Zod")); // 'Ошибка! Логин должен быть от 4 до 16 символов'
-console.log(addLogin(logins, "jqueryisextremelyfast")); // 'Ошибка! Логин должен быть от 4 до 16 символов'
+account.withdraw(200);
+account.getBalance();
+account.deposit(500);
+account.deposit(300);
+account.deposit(200);
+account.deposit(100);
+account.deposit(50);
+account.withdraw(1000);
+account.getBalance();
+console.log(account.transactions);
+account.getTransactionDetails("3");
+account.getTransactionTotal("deposit");
+account.getTransactionTotal("withdraw");
