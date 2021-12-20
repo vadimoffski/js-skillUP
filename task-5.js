@@ -7,7 +7,12 @@ const products = [
 ];
 
 const getAllPropValues = function (arr, prop) {
-  return arr.filter((el) => el[prop]).map((el) => el[prop]);
+  let res = [];
+  for (let key of arr) {
+    if (key[prop]) res.push(key[prop]);
+  }
+  return res;
+  // return arr.filter((el) => el[prop]).map((el) => el[prop]);
 };
 
 /*

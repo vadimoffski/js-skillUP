@@ -5,7 +5,7 @@ const findBestEmployee = (employees) => {
   for (let key in employees) {
     if (employees[key] === max) return key;
   }
-  return -1;
+  return null;
 };
 
 /*

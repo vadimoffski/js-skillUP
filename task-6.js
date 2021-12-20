@@ -9,11 +9,16 @@ const products = [
 ];
 
 const calculateTotalPrice = (allProdcuts, productName) => {
-  return allProdcuts
-    .filter((el) => el.name === productName)
-    .forEach((el) => {
-      console.log(el.price * el.quantity);
-    });
+  for (let { name, price, quantity } of allProdcuts) {
+    if (name === productName) {
+      console.log(price * quantity);
+    }
+  }
+  // return allProdcuts
+  //   .filter((el) => el.name === productName)
+  //   .forEach((el) => {
+  //     console.log(el.price * el.quantity);
+  //   });
 };
 
 /*
