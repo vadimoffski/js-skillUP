@@ -4,19 +4,46 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>JS-Tasks</title>
+    <title>keyCodes</title>
+    <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <script type="module" src="./users.js"></script>
-    <!-- <script type="module" src="./task-1.js"></script> -->
-    <!-- <script type="module" src="./task-2.js"></script> -->
-    <!-- <script type="module" src="./task-3.js"></script> -->
-    <!-- <script type="module" src="./task-4.js"></script> -->
-    <!-- <script type="module" src="./task-5.js"></script> -->
-    <!-- <script type="module" src="./task-6.js"></script> -->
-    <!-- <script type="module" src="./task-7.js"></script> -->
-    <!-- <script type="module" src="./task-8.js"></script> -->
-    <!-- <script type="module" src="./task-9.js"></script> -->
-    <script type="module" src="./task-10.js"></script>
+    <div class="display_text">
+      Press any key to get the JavaScript event keycode &#128163; &#128163;
+      &#128163;
+    </div>
+    <div class="key">
+      <div class="key_table hidden">
+        <thead>
+          <tr>
+            <th>First Name</th>
+            <th>Last Name</th>
+          </tr>
+        </thead>
+        <tbody class="key_table_body"></tbody>
+      </div>
+      <button class="key_tableBtn">&#128296;Table</button>
+      <div class="key_number">key</div>
+      <div class="key_events">
+        <div class="key_events_item">
+          <div class="key_events_item_header">&#128273;event.key</div>
+          <div class="key_events_item_main _key-num">key</div>
+        </div>
+        <div class="key_events_item">
+          <div class="key_events_item_header">&#128205;event.location</div>
+          <div class="key_events_item_main _location">location</div>
+        </div>
+        <div class="key_events_item">
+          <div class="key_events_item_header">&#127918;event.which</div>
+          <div class="key_events_item_main _which">which</div>
+        </div>
+        <div class="key_events_item">
+          <div class="key_events_item_header">&#127752;event.code</div>
+          <div class="key_events_item_main _code">code</div>
+        </div>
+      </div>
+    </div>
+    <script type="module" src="./script/keys.js"></script>
+    <script type="module" src="./script/script.js"></script>
   </body>
 </html>
