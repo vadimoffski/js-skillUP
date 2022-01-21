@@ -1,0 +1,22 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+  list-style: none;
+}
+img {
+  max-width: 100%;
+}
+ul {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px 10px;
+}
+ul > :not(:last-child) {
+  margin: 0 20px 0 0;
+}
+ul > li {
+  flex: 0 1 33.333%;
+}
